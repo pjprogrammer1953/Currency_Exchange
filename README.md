@@ -1,4 +1,5 @@
-# would_you_rather
+# Would You Rather?
+
 Cohort Huckleberry Ruby Capstone Project
 
 ## Project Vision
