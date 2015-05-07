@@ -6,3 +6,30 @@ Cohort Huckleberry Ruby Capstone Project
 This will be a small command-line program that asks the user to rank what (of two scenarios) they'd rather do.
 
 Users will be able to add/edit/delete scenarios, as well as take a quiz to make choices between the scenarios.  After taking the quiz, the user can get a list of the things they'd rather do based on the results of their quiz.
+
+## Features
+
+### Viewing quiz results
+
+In order to learn hard truths about my life priorities
+I want to see what my priorities, as reflected by my quiz answer
+
+### Taking the quiz
+
+In order to learn hard truths about my life priorities
+I want to take the quiz
+
+### Adding a new scenario
+
+In order to have illuminating connections in our quiz results
+I want to add many scenarios
+
+### Editing an existing scenario
+
+In order to fix typos and/or clarify meaning
+I want to edit an existing scenario
+
+### Deleting a scenario
+ 
+In order to remove duplicates and/or scenarios that aren't illuminating
+I want to delete an existing scenario
