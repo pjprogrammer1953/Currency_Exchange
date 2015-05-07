@@ -29,7 +29,62 @@ I want to add many scenarios
 In order to fix typos and/or clarify meaning
 I want to edit an existing scenario
 
+### Viewing all existing scenarios
+
+In order to evaluate and/or manage the existing scenarios
+I want to view all the existing scenarios
+
+Usage Example:
+
+  > ./would_you_rather manage
+  1. Add a scenario
+  2. List all scenarios
+  3. Exit
+  > 2
+  1. eat a snake
+  2. eat a steak
+  3. butcher a cow
+
+Acceptance Criteria:
+
+  * All scenarios are printed out
+  * Each scenario is given a number, which does not correspond to its database id
+
 ### Deleting a scenario
  
 In order to remove duplicates and/or scenarios that aren't illuminating
 I want to delete an existing scenario
+
+Usage Example:
+
+  > ./would_you_rather manage
+  1. Add a scenario
+  2. List all scenarios
+  3. Exit
+  > 2
+  1. eat a snake
+  2. eat a steak
+  3. butcher a cow
+  > 3
+  butcher a cow
+  Would you like to?
+  1. Edit
+  2. Delete
+  3. Exit
+  > 2
+  "butcher a cow" has been deleted
+  1. Add a scenario
+  2. List all scenarios
+  3. Exit
+
+Acceptance Criteria:
+
+  * Program prints out confirmation that the scenario was deleted
+  * The deleted scenario is removed from the database
+  * All references to the deleted scenario are removed from the database
+  * After the deletion, the user is taken back to the main manage menu
+
+### Importing baseline scenarios
+
+In order to avoid having to come up with my own scenarios
+I want to import an existing list of scenarios
