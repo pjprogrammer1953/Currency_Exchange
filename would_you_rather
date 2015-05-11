@@ -1,1 +1,26 @@
 #!/usr/bin/env ruby
+require 'highline/import'
+
+
+menu_prompt = <<EOS
+1. Add a scenario
+2. List all scenarios
+3. Exit
+EOS
+
+if ARGV.length < 1
+  print "[Help] Run as: ./would_you_rather manage"
+elsif ARGV.length == 1
+  # Not valid argument
+  if ARGV[0] != 'manage'
+    print "[Help] Run as: ./would_you_rather manage"
+  else
+    choose do |menu|
+      menu.prompt = ""
+
+      menu.choice('Add a scenario') { say("") }
+      menu.choice('List all scenarios') { say("") }
+      menu.choice('Exit') { say("Peace Out!\n") }
+    end
+  end
+end
