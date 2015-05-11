@@ -19,7 +19,7 @@ elsif ARGV.length == 1
       menu.prompt = ""
 
       menu.choice('Add a scenario') { say("") }
-      menu.choice('List all scenarios') { say("") }
+      menu.choice('List all scenarios') { say("No scenarios found. Add a scenario.\n") }
       menu.choice('Exit') { say("Peace Out!\n") }
     end
   end
