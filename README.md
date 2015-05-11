@@ -34,15 +34,66 @@ Features:
     Target currency: Lats (LVL)
     1 USD = 0.62 LVL
     
+ Customer Usage Example:
+
+./currency_exchange USA France
+
+USA uses United States Dollar (USD)
+France uses EURO (EUR)
+Current exchange rate is USD = 0.90 EUR
+
+
+Acceptance Criteria:
+  1) Source currency declaration.
+  2) Target currency declaration.
+  3) Exchange rate declaration.
+  4) Exit or new request made.
+    
+    
 4) Currency and country file maintenance
   a) Add record - fields entered will be: country name (alpha), currency name (alpha), currency abbreviation (alpha), exchange rate in Euros (real number with 2 decimal positions); blank and zero entries will not be permitted.
   b) Change record - all entered fields will be editable; editing software will not permit zero or blank values
   c) Delete record - entire record will be deletable with a deletion message
+  
+Viewing all existing countries, currencies, and exchange rate to EURO standard.
 
-5) Program exit command has yet to be determined
+In order to inspect, correct spelling, adjust exchange rates, all the existing scenarios are displayed, with updating permitted.
+
+Administrator Usage Example:
+
+./currency_exchange add
+
+Add a country
+  1) List all countries
+  2) Kosovo EURO EUR 1.00
+  3) New entry is accepted: 1) country name, 2) full currency name, 3) currency name abbreviation, 4) Euro exchange rate
+  4) All countries are listed with updated fields displayed.
+  5) Exit
 
 Acceptance Criteria:
-1) Acceptance of all entered countries will be allowed
+  All countries are printed out with the new country, full currency name, currency name abbreviation, and Euro exchange rate
+  Duplicate entry is not accepted.
+
+In order to remove an error or obsolete data, deletion of a record is performed as follows.
+
+Administrator Usage Example:
+
+./currency_exchange delete
+
+Delete a country
+  1) List all scenarios
+  2) East Germany
+  3) Delete
+  4) Message: "East Germany has been deleted"
+  5) List all countries
+  6) Exit
+
+Acceptance Criteria:
+  Program prints out confirmation that the country was deleted
+  The deleted country is removed from the database
+
+Overall Utility Acceptance Criteria:
+1) Acceptance of all entered countries will be allowed with no duplicates
 2) Accurate calculation of currency exchange rate will be performed and displayed
 3) Test driven development will dictate data validation as well as proper software.
 4) All possible combinations of countries will be tested, especially those that share a common currency, such as the Euro.
