@@ -8,6 +8,7 @@ Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_opti
 require 'minitest/autorun'
 require 'sqlite3'
 Dir["./app/**/*.rb"].each { |f| require f }
+Dir["./lib/*.rb"].each { |f| require f }
 
 def create_scenario(name)
   @db.execute("INSERT INTO scenarios (name) VALUES (?)", name)
