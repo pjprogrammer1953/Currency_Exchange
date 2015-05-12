@@ -8,23 +8,14 @@ menu_prompt = <<EOS
 3. Exit
 EOS
 
-def print_error_message
-  puts "[Help] Run as: ./would_you_rather manage"
-end
+if ARGV.size == 1 and ARGV[0] == "manage"
+  choose do |menu|
+    menu.prompt = ""
 
-if ARGV.length < 1
-  print_error_message
-elsif ARGV.length == 1
-  # Not valid argument
-  if ARGV[0] != 'manage'
-    print_error_message
-  else
-    choose do |menu|
-      menu.prompt = ""
-
-      menu.choice('Add a scenario') { say("") }
-      menu.choice('List all scenarios') { say("No scenarios found. Add a scenario.\n") }
-      menu.choice('Exit') { say("Peace Out!\n") }
-    end
+    menu.choice('Add a scenario') { say("") }
+    menu.choice('List all scenarios') { say("No scenarios found. Add a scenario.\n") }
+    menu.choice('Exit') { say("Peace Out!\n") }
   end
+else
+  puts "[Help] Run as: ./would_you_rather manage"
 end
