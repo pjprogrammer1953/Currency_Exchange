@@ -8,7 +8,10 @@ This will be a small command-line program that asks the user to rank what (of tw
 
 Users will be able to add/edit/delete scenarios, as well as take a quiz to make choices between the scenarios.  After taking the quiz, the user can get a list of the things they'd rather do based on the results of their quiz.
 
-## Features
+## Usage
+
+ * Run `rake bootstrap_database` to setup your local database
+ * Then, `./would_you_rather manage` to manage the list of scenarios
 
 ### Viewing quiz results
 

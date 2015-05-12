@@ -11,12 +11,7 @@ Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_opti
 require 'minitest/autorun'
 class Minitest::Test
   def setup
-    Database.execute <<-SQL
-    CREATE TABLE IF NOT EXISTS scenarios (
-      id integer PRIMARY KEY AUTOINCREMENT,
-      name varchar(255) NOT NULL
-    );
-    SQL
+    Database.load_structure
     Database.execute("DELETE FROM scenarios;")
   end
 end
@@ -24,7 +19,6 @@ end
 def create_scenario(name)
   Database.execute("INSERT INTO scenarios (name) VALUES (?)", name)
 end
-
 
 def main_menu
   "1. Add a scenario\n2. List all scenarios\n3. Exit\n"
