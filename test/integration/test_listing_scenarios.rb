@@ -16,7 +16,6 @@ class TestListingScenarios < Minitest::Test
   end
 
   def test_listing_multiple_scenarios
-    setup_database
     create_scenario("Eat tiger meat")
     create_scenario("Swallow a pencil")
     shell_output = ""

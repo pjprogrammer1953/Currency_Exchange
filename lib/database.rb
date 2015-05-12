@@ -1,3 +1,5 @@
+require 'sqlite3'
+
 class Database
   def self.execute(*args)
     initialize_database unless defined?(@@db)
