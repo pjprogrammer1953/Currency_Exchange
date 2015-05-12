@@ -7,6 +7,8 @@ class Database
   end
 
   def self.initialize_database
-    @@db = SQLite3::Database.new("db/would_you_rather_test.sqlite")
+    environment = ENV["TEST"] ? "test" : "production"
+    database = "db/would_you_rather_#{environment}.sqlite"
+    @@db = SQLite3::Database.new(database)
   end
 end
