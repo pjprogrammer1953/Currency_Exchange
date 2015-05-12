@@ -8,12 +8,16 @@ menu_prompt = <<EOS
 3. Exit
 EOS
 
+def print_error_message
+  puts "[Help] Run as: ./would_you_rather manage"
+end
+
 if ARGV.length < 1
-  print "[Help] Run as: ./would_you_rather manage"
+  print_error_message
 elsif ARGV.length == 1
   # Not valid argument
   if ARGV[0] != 'manage'
-    print "[Help] Run as: ./would_you_rather manage"
+    print_error_message
   else
     choose do |menu|
       menu.prompt = ""
