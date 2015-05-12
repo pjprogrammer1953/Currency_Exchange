@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require 'highline/import'
 
+Dir["./app/**/*.rb"].each { |f| require f }
 
 menu_prompt = <<EOS
 1. Add a scenario
@@ -12,8 +13,9 @@ if ARGV.size == 1 and ARGV[0] == "manage"
   choose do |menu|
     menu.prompt = ""
 
+    scenarios_controller = ScenariosController.new
     menu.choice('Add a scenario') { say("") }
-    menu.choice('List all scenarios') { say("No scenarios found. Add a scenario.\n") }
+    menu.choice('List all scenarios') { scenarios_controller.index }
     menu.choice('Exit') { say("Peace Out!\n") }
   end
 else
