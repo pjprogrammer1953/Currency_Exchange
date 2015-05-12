@@ -11,17 +11,17 @@ Dir["./app/**/*.rb"].each { |f| require f }
 Dir["./lib/*.rb"].each { |f| require f }
 
 def create_scenario(name)
-  @db.execute("INSERT INTO scenarios (name) VALUES (?)", name)
+  Database.execute("INSERT INTO scenarios (name) VALUES (?)", name)
 end
 
 def setup_database
-  @db = SQLite3::Database.new("db/would_you_rather_test.sqlite")
-  @db.execute <<-SQL
+  Database.execute <<-SQL
   CREATE TABLE IF NOT EXISTS scenarios (
     id integer PRIMARY KEY AUTOINCREMENT,
     name varchar(255) NOT NULL
   );
 SQL
+  Database.execute("DELETE FROM scenarios;")
 end
 
 def main_menu
