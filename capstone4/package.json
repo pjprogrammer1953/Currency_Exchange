@@ -1,0 +1,11 @@
+{
+  "name": "capstone4",
+  "version": "1.0.0",
+  "description": "Language Learning",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shoup",
+  "license": "MIT"
+}
