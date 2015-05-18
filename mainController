@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+require 'highline/import'
+require 'sqlite3'
+
+Dir["./app/**/*.rb"].each { |f| require f }
+Dir["./lib/*.rb"].each { |f| require f }
+
+menu_prompt = <<EOS
+1. Calculate exchange rate
+2. Display all currencies
+3. Alter a currency
+4. Add a currency
+5. Delete a currency
+6. Exit
+EOS
+
+# use country_name 1 & country_name 2, fetch both lines,
+# print out: "Canada uses Canadian Dollars (CDN)"
+# print out: "Slovakia uses Euros (EUR)"
+# print out: "100 CND are worth 70 EUR"
+  def currencies_calculate
+	
+  end
+
+# Use id to fetch record then update with parms
+  def currencies_change
+	
+  end
+
+#No change
+  def currencies_add
+	db_x = SQLite3::Database.open "db/currencies.sqlite"
+	db_x.execute('INSERT INTO currency_X
+		(country_name, currency, currency_abrv, rate_to_euro)
+		VALUES ("CANADA", "EURO", "EUR", 1.00)')
+	if db_x then db_x.close end
+  end
+
+# Use id to fetch the record then delete
+  def currencies_delete
+	
+  end
+
+# Need to edit to one line per country
+  def currencies_show
+	db_x = SQLite3::Database.open "db/currencies.sqlite"
+	result = db_x.execute('select * from currency_X order by country_name')
+	puts result
+	if db_x then db_x.close end
+  end
+
+if ARGV.size == 0
+  choose do |menu|
+    menu.prompt = ""
+    currencies_controller = CurrenciesController.new
+    menu.choice('Calculate exchange rate') { currencies_calculate }
+    menu.choice('Display all currencies') { currencies_show }
+    menu.choice('Alter a currency') { currencies_change }
+    menu.choice('Add a currency') { currencies_add }
+    menu.choice('Delete a currency') { currencies_delete }
+    menu.choice('Exit') { say("Signed out!\n") }
+  end
+else
+  puts "[Help] Run as: ./mainController manage"
+end
