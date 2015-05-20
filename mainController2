@@ -72,8 +72,20 @@ EOS
 # Display entire file of countries
   def currencies_show
 	db_x = SQLite3::Database.open "db/currencies.sqlite"
-	result = db_x.execute("select * from currency_X order by country_name")
-	puts result
+	zz = db_x.execute("select * from currency_X order by country_name")
+	puts zz
+    j = 0
+    k = zz.length
+    while j < k
+      pp = ""
+        5.times do |i|
+          pp += zz[j][i].chomp
+          pp += " "
+        end
+      pp += "\n"
+      puts pp
+      j +=
+    end
 	if db_x then db_x.close end
   end
 
@@ -86,3 +98,4 @@ EOS
     menu.choice('Delete a currency') { currencies_delete (ARGV)}
     menu.choice('Exit') { say("Bon voyage!!!\n") }
   end
+end
